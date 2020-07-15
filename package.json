@@ -1,0 +1,87 @@
+{
+  "name": "@gact/key",
+  "version": "0.0.0-rc.1",
+  "description": "A library to generate the maximally efficient series of unique keys for a given alphabet.",
+  "keywords": [
+    "key",
+    "gact",
+    "react"
+  ],
+  "main": "dist/key.umd.js",
+  "module": "dist/key.es5.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Mateusz Okon <teuszokon@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gactjs/key"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.12.0"
+  },
+  "scripts": {
+    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "yarn eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "build": "rollup -c rollup.config.ts",
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier --write {src,test}/**/*.ts"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.22",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-tsdoc": "^0.2.3",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "rollup": "^1.26.5",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.8.3"
+  }
+}
